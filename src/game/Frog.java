@@ -17,27 +17,35 @@ public class Frog extends Walker {
     
     // creates an int to track the character's life.
     private int life;
+    private String output;
 
     // Constructor for the Frog class.
     public Frog(World world) {
         super(world, shape);
         addImage(image);
         life = 100;
+        output = "Life: " + life;
     }
     
     // Method to decrease lives by 34 when spiked ball is hit.
     public void ballDecrementLives(){
-        life = life - 34;
+        life -= 34;
+        output = "Life: " + life;
     }
     
     // Method to decrease lives by 50 when border is hit.
     public void wallDecrementLives(){
-        life = life - 50;
+        life -= 50;
+        output = "Life: " + life;
     }
     
     // Method to return the current value of lives.
     public int getLives(int life){
         return this.life = life;
+    }
+    
+    public String getOutput(){
+        return output;
     }
 
     // Method to control what happends when the Fly is eaten.

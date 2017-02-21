@@ -18,7 +18,7 @@ public class Game {
 
         // make the world
         world = new GameWorld();
-        view = new UserView(world, 800, 800);
+        view = new GameView(world, world.getPlayer(), 800, 800);
 
         // display the view in a frame
         final JFrame frame = new JFrame("Event handling");
