@@ -24,7 +24,9 @@ public class GameView extends UserView {
     public GameView(World world, Frog frog, int width, int height) {
         super(world, width, height);
         this.frog = frog;
-        this.background = new ImageIcon("data/water_background.jpg").getImage();
+        this.background = new ImageIcon("data/water_gif.gif").getImage();
+        this.background = this.background.getScaledInstance(
+                758, 758, Image.SCALE_SMOOTH);
     }
     
     @Override
