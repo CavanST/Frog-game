@@ -18,6 +18,7 @@ public class Frog extends Walker {
     // creates an int to track the character's life.
     private int life;
     private String output;
+    private int flyNum;
 
     // Constructor for the Frog class.
     public Frog(World world) {
@@ -25,6 +26,7 @@ public class Frog extends Walker {
         addImage(image);
         life = 100;
         output = "Life: " + life;
+        flyNum = 0;
     }
     
     // Method to decrease lives by 34 when spiked ball is hit.
@@ -36,6 +38,14 @@ public class Frog extends Walker {
     // Method to decrease lives by 50 when border is hit.
     public void wallDecrementLives(){
         life -= 50;
+        output = "Life: " + life;
+    }
+    
+    public void heartIncrementLives(){
+        life += 50;
+        if (life > 100){
+            life = 100;
+        }
         output = "Life: " + life;
     }
     
@@ -51,8 +61,15 @@ public class Frog extends Walker {
     // Method to control what happends when the Fly is eaten.
     public void eatFly() {
         System.out.println("You ate the fly!");
-        System.out.println("YOU WIN!!!");
-        System.exit(0);
+        System.out.println("Next Level.....");
+    }
+    
+    public void incrementFlyCount(){
+        flyNum ++;
+    }
+    
+    public int getFlyCount(){
+        return flyNum;
     }
     
     //Method to control what happens when a spiked ball is hit.
@@ -63,9 +80,15 @@ public class Frog extends Walker {
             System.out.println("You lose!");
             System.exit(0);
         }else{
-            System.out.println("Ouch! You shouldn't swallow spiked balls.");
+            System.out.println("Ouch!");
             System.out.println("Life = " + getLives(life));
         }
+    }
+    
+    public void pickupHeart(){
+        heartIncrementLives();
+        System.out.println("You regenerated some health :)");
+        System.out.println("Life = " + getLives(life));
     }
     
     // Method to control what happens when the border is hit.
@@ -86,5 +109,16 @@ public class Frog extends Walker {
         System.out.println("Ouch! You drowned in lava.");
         System.out.println("You lose!");
         System.exit(0);
+    }
+    
+    public void jumpedOnLava(){
+        System.out.println("Ouch! You jumped on lava.");
+        System.out.println("You lose!");
+        System.exit(0);
+    }
+    
+    private Frog player;
+    public Frog getPlayer() {
+        return player;
     }
 }

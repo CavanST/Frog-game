@@ -3,7 +3,7 @@ package game;
 import city.cs.engine.*;
 
 // Class containing the information to create a Fly.
-public class Fly extends StaticBody {
+public class Fly extends DynamicBody {
     
     //Creates a polygon shape in the form of a fly.
     private static final Shape shape = new PolygonShape(

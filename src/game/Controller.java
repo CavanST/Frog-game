@@ -31,7 +31,6 @@ public class Controller extends KeyAdapter {
             Vec2 v = body.getLinearVelocity();
             // stops player being able to jump in mid air.
             if (Math.abs(v.y) < 0.01f) {
-                System.out.println("Jump!");
                 body.jump(JUMPING_HEIGHT);
             }
         } else if (code == KeyEvent.VK_A) {
@@ -50,5 +49,9 @@ public class Controller extends KeyAdapter {
         } else if (code == KeyEvent.VK_D) {
             body.startWalking(STOP_WALKING);
         }
+    }
+    
+    public void setBody(Walker body) {
+        this.body = body;
     }
 }
